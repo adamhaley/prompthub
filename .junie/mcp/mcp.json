@@ -1,0 +1,20 @@
+{
+    "mcpServers": {
+        "laravel-boost": {
+            "command": "/Users/adamhaley/Library/Application Support/Herd/bin/php85",
+            "args": [
+                "/opt/homebrew/var/www/prompthub/artisan",
+                "boost:mcp"
+            ]
+        },
+        "herd": {
+            "command": "/Users/adamhaley/Library/Application Support/Herd/bin/php85",
+            "args": [
+                "/Applications/Herd.app/Contents/Resources/herd-mcp.phar"
+            ],
+            "env": {
+                "SITE_PATH": "/opt/homebrew/var/www/prompthub"
+            }
+        }
+    }
+}

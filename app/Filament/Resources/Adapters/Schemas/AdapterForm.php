@@ -4,7 +4,7 @@ namespace App\Filament\Resources\Adapters\Schemas;
 
 use App\Enums\AdapterCategory;
 use Filament\Forms\Components\KeyValue;
-use Filament\Forms\Components\Section;
+use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;

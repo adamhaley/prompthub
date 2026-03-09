@@ -6,7 +6,6 @@ use App\Enums\AdapterCategory;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Tables\Actions\ToggleColumnsAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
@@ -79,7 +78,6 @@ class AdaptersTable
                 EditAction::make(),
             ])
             ->toolbarActions([
-                ToggleColumnsAction::make(),
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),

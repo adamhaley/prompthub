@@ -1,0 +1,319 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+
+/*
+ * Material Design Theme for Filament
+ * Inspired by MUI (Material UI) design language
+ */
+
+/* ============================================
+   CSS Variables - Material Design Palette
+   ============================================ */
+:root {
+    /* Primary Blue (matches MUI #2563eb) */
+    --md-primary: 37 99 235;
+    --md-primary-light: 59 130 246;
+    --md-primary-dark: 29 78 216;
+
+    /* Gray scale (Slate for cooler tones like MUI) */
+    --md-gray-50: 248 250 252;
+    --md-gray-100: 241 245 249;
+    --md-gray-200: 226 232 240;
+    --md-gray-300: 203 213 225;
+    --md-gray-400: 148 163 184;
+    --md-gray-500: 100 116 139;
+    --md-gray-600: 71 85 105;
+    --md-gray-700: 51 65 85;
+    --md-gray-800: 30 41 59;
+    --md-gray-900: 15 23 42;
+
+    /* Spacing (8px base like MUI) */
+    --md-spacing-unit: 8px;
+
+    /* Border radius (6px like MUI) */
+    --md-radius: 6px;
+    --md-radius-lg: 8px;
+
+    /* Shadows (subtle like MUI) */
+    --md-shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --md-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* ============================================
+   Sidebar - Material Design Navigation
+   ============================================ */
+
+/* Sidebar container */
+.fi-sidebar {
+    @apply !bg-white dark:!bg-slate-900;
+    border-right: 1px solid rgb(226 232 240);
+}
+
+.dark .fi-sidebar {
+    border-right-color: rgb(51 65 85);
+}
+
+/* Sidebar header */
+.fi-sidebar-header {
+    @apply border-b border-slate-200 dark:border-slate-700;
+    height: 64px;
+}
+
+/* Navigation items - MUI style with left border accent */
+.fi-sidebar-item {
+    @apply rounded-md mx-2 my-0.5;
+    transition: all 0.15s ease-in-out;
+}
+
+.fi-sidebar-item-button {
+    @apply rounded-md;
+    border-left: 4px solid transparent;
+    margin-left: -4px;
+    padding-left: calc(0.75rem + 4px);
+}
+
+/* Active state - blue left border like MUI */
+.fi-sidebar-item-active .fi-sidebar-item-button {
+    @apply bg-blue-50 dark:bg-blue-950/50;
+    border-left-color: rgb(37 99 235);
+}
+
+.fi-sidebar-item-active .fi-sidebar-item-button .fi-sidebar-item-icon {
+    @apply text-blue-600 dark:text-blue-400;
+}
+
+.fi-sidebar-item-active .fi-sidebar-item-button .fi-sidebar-item-label {
+    @apply text-blue-700 dark:text-blue-300 font-medium;
+}
+
+/* Hover state */
+.fi-sidebar-item-button:hover {
+    @apply bg-slate-100 dark:bg-slate-800;
+}
+
+/* Navigation group headings */
+.fi-sidebar-group-label {
+    @apply text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400;
+    padding: 0.5rem 1rem;
+}
+
+/* ============================================
+   Buttons - Material Design Style
+   ============================================ */
+
+/* All buttons - no uppercase, medium weight */
+.fi-btn {
+    @apply font-medium;
+    text-transform: none !important;
+    border-radius: var(--md-radius);
+    box-shadow: none;
+    transition: all 0.15s ease-in-out;
+}
+
+/* Primary filled buttons */
+.fi-btn-color-primary {
+    box-shadow: none !important;
+}
+
+.fi-btn-color-primary:hover {
+    box-shadow: none !important;
+}
+
+/* Outlined buttons */
+.fi-btn[data-variant="outlined"] {
+    @apply border-2;
+}
+
+/* Icon buttons - circular like MUI */
+.fi-icon-btn {
+    @apply rounded-full;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.fi-icon-btn:hover {
+    @apply bg-slate-100 dark:bg-slate-800;
+}
+
+/* ============================================
+   Cards & Sections - Lighter Shadows
+   ============================================ */
+
+.fi-section {
+    @apply rounded-lg;
+    box-shadow: var(--md-shadow-sm);
+}
+
+.fi-section-content-ctn {
+    @apply bg-white dark:bg-slate-800;
+}
+
+/* Widget cards */
+.fi-wi {
+    @apply rounded-lg;
+    box-shadow: var(--md-shadow-sm);
+}
+
+/* Stats widgets */
+.fi-wi-stats-overview-stat {
+    @apply rounded-lg bg-white dark:bg-slate-800;
+    box-shadow: var(--md-shadow-sm);
+}
+
+/* ============================================
+   Tables - Clean Material Design
+   ============================================ */
+
+.fi-ta {
+    @apply rounded-lg overflow-hidden;
+    box-shadow: var(--md-shadow-sm);
+}
+
+/* Table header */
+.fi-ta-header-ctn {
+    @apply bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-700;
+}
+
+/* Table rows */
+.fi-ta-row {
+    @apply border-b border-slate-100 dark:border-slate-700/50;
+    transition: background-color 0.1s ease-in-out;
+}
+
+.fi-ta-row:hover {
+    @apply bg-slate-50 dark:bg-slate-800/30;
+}
+
+/* Table header cells */
+.fi-ta-header-cell {
+    @apply text-xs font-medium uppercase tracking-wider text-slate-600 dark:text-slate-400;
+}
+
+/* ============================================
+   Form Inputs - MUI TextField Style
+   ============================================ */
+
+/* Input fields */
+.fi-input {
+    @apply rounded-md border-slate-300 dark:border-slate-600;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.fi-input:focus {
+    @apply border-blue-500 ring-2 ring-blue-500/20;
+}
+
+/* Select inputs */
+.fi-select-input {
+    @apply rounded-md;
+}
+
+/* Text areas */
+.fi-textarea {
+    @apply rounded-md;
+}
+
+/* Input wrappers */
+.fi-input-wrp {
+    @apply rounded-md;
+}
+
+/* ============================================
+   Modals & Dialogs - Material Design
+   ============================================ */
+
+.fi-modal-window {
+    @apply rounded-lg;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+.fi-modal-header {
+    @apply border-b border-slate-200 dark:border-slate-700;
+}
+
+.fi-modal-footer {
+    @apply border-t border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50;
+}
+
+/* ============================================
+   Badges & Chips - MUI Style
+   ============================================ */
+
+.fi-badge {
+    @apply rounded-full font-medium;
+}
+
+/* ============================================
+   Tabs - Material Design Indicator
+   ============================================ */
+
+.fi-tabs-tab {
+    @apply font-medium;
+    transition: color 0.15s ease-in-out;
+}
+
+.fi-tabs-tab-active {
+    @apply text-blue-600 dark:text-blue-400;
+}
+
+/* ============================================
+   Topbar / Header - Clean Material Style
+   ============================================ */
+
+.fi-topbar {
+    @apply bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700;
+    height: 64px;
+}
+
+/* Breadcrumbs */
+.fi-breadcrumbs {
+    @apply text-sm;
+}
+
+/* ============================================
+   Page Headers
+   ============================================ */
+
+.fi-header-heading {
+    @apply text-2xl font-semibold text-slate-900 dark:text-white;
+}
+
+.fi-header-subheading {
+    @apply text-sm text-slate-600 dark:text-slate-400;
+}
+
+/* ============================================
+   Notifications / Alerts
+   ============================================ */
+
+.fi-no {
+    @apply rounded-lg;
+    box-shadow: var(--md-shadow);
+}
+
+/* ============================================
+   Loading States
+   ============================================ */
+
+.fi-loading-indicator {
+    @apply text-blue-600;
+}
+
+/* ============================================
+   Dark Mode Refinements
+   ============================================ */
+
+.dark {
+    .fi-sidebar {
+        @apply bg-slate-900;
+    }
+
+    .fi-section-content-ctn {
+        @apply bg-slate-800;
+    }
+
+    .fi-ta {
+        @apply bg-slate-800;
+    }
+}

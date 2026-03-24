@@ -134,12 +134,16 @@ class VersionsRelationManager extends RelationManager
                     ->modalSubmitAction(false)
                     ->modalCancelActionLabel('Close')
                     ->schema(function (PromptVersion $record): array {
-                        $prev = $record->parent ?? PromptVersion::query()
-                            ->where('prompt_id', $record->prompt_id)
-                            ->where('branch_name', $record->branch_name)
-                            ->where('created_at', '<', $record->created_at)
-                            ->latest('created_at')
-                            ->first();
+                        $prev = $record->parent;
+
+                        if (! $prev && $record->created_at) {
+                            $prev = PromptVersion::query()
+                                ->where('prompt_id', $record->prompt_id)
+                                ->where('branch_name', $record->branch_name)
+                                ->where('created_at', '<', $record->created_at)
+                                ->latest('created_at')
+                                ->first();
+                        }
 
                         if (! $prev) {
                             return [

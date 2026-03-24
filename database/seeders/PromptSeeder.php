@@ -232,6 +232,9 @@ PROMPT,
                 'base_version_id' => $version->id,
             ]);
 
+            // Set the current version on the prompt
+            $prompt->update(['current_version_id' => $version->id]);
+
             $this->command->info("Created prompt: {$promptData['name']}");
         }
     }
